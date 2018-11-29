@@ -36,8 +36,18 @@ body {
 }
 
 .marker {
-  height: 20px;
-  width: 20px;
+  height: 25px;
+  width: 25px;
   background-color: red;
   border-radius: 50%;
+  color: white;
+  font-size: 0.8em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .flat-price {
+  }
+  .flat-currency {
+  }
 }

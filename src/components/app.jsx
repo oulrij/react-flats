@@ -3,38 +3,50 @@ import GoogleMapReact from 'google-map-react';
 
 import flats from '../../data/flats';
 import FlatList from './flat_list';
+import Marker from './marker';
 
 class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
+      flats,
       selectedFlat: flats[0],
-      flats
     };
   }
 
   center() {
     return {
-      lat: 48.884211,
-      lng: 2.34689
-      // lat: this.state.selectedFlat.lat,
-      // lng: this.state.selectedFlat.lng
+      lat: this.state.selectedFlat.lat,
+      lng: this.state.selectedFlat.lng
     };
   }
+
+  selectFlat = (index) => {
+    this.setState({
+      selectedFlat: flats[index]
+    });
+  }
+
 
   render() {
     return (
       <div>
         <FlatList
           flats={this.state.flats}
+          selectFlat={this.selectFlat}
+          selectedFlat={this.state.selectedFlat}
         />
+
         <div className="map-container">
           <GoogleMapReact
             bootstrapURLKeys={{ key: 'AIzaSyBwvzwpwAxHFlFC79wPzznw_9zbFYnawyk' }}
             center={this.center()}
-            zoom={12}>
+            zoom={13}>
+            <Marker selectedFlat={this.state.selectedFlat}/>
           </GoogleMapReact>
         </div>
+
       </div>
     );
   }
