@@ -46,7 +46,7 @@ class App extends Component {
             bootstrapURLKeys={{ key: process.env.GOOGLE_MAPS_API }}
             center={this.center()}
             zoom={13}>
-            <Marker selectedFlat={this.state.selectedFlat}/>
+            <Marker lat={this.state.selectedFlat.lat} lng={this.state.selectedFlat.lng} selectedFlat={this.state.selectedFlat}/>
           </GoogleMapReact>
         </div>
 
