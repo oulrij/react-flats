@@ -5,6 +5,7 @@ import flats from '../../data/flats';
 import FlatList from './flat_list';
 import Marker from './marker';
 
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -13,6 +14,8 @@ class App extends Component {
       flats,
       selectedFlat: flats[0],
     };
+
+    console.log(process.env.GOOGLE_MAPS_API)
   }
 
   center() {
@@ -40,7 +43,7 @@ class App extends Component {
 
         <div className="map-container">
           <GoogleMapReact
-            bootstrapURLKeys={{ key: 'AIzaSyBwvzwpwAxHFlFC79wPzznw_9zbFYnawyk' }}
+            bootstrapURLKeys={{ key: process.env.GOOGLE_MAPS_API }}
             center={this.center()}
             zoom={13}>
             <Marker selectedFlat={this.state.selectedFlat}/>

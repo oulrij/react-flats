@@ -9,13 +9,12 @@ class Flat extends Component {
     if (this.props.selected) {
       return (
         "card active"
-      )
+      );
     } else {
       return (
         "card"
-      )
+      );
     }
-
   }
 
   render() {
